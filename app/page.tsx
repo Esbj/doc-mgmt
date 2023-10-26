@@ -1,5 +1,15 @@
+"use client"
 import Preview from "@/components/Preview"
+import { useEffect } from "react";
 export default function Home() {
+  useEffect(() => {
+    const getPosts = async () => {
+      const result = await fetch("/api/dagbok");
+      const postsFromApi = await result.json();
+      setPosts(postsFromApi);
+    };
+    getPosts();
+  }, []);
   const docs = [
     {
       heading: "Heading",

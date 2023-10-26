@@ -1,7 +1,10 @@
+import { Doc } from '@/interface'
 import React from 'react'
 
 export default function edit() {
   return (
-    <div>View doc</div>
+    <>
+      <h1></h1>
+    </>
   )
 }
