@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: rgb(229, 231, 235);
+}
+.icon-large {
+  font-size: 140px !important;
+  margin: 0 auto;
+}

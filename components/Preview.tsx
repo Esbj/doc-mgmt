@@ -1,27 +1,26 @@
+import { Doc } from '@/lib/interface'
 import Link from 'next/link'
 import React from 'react'
 type props = {
-  document: {
-    content: string,
-    heading: string
-  }
+  document: Doc
   id: number
 }
 export default function Preview({ document, id }: props) {
   return (
-    <div className="bg-white m-4 rounded-3xl p-6">
-      <div className='flex justify-between'>
+    <div className="bg-white p-6  w-1/4 rounded-3xl ">
 
+      <div className='flex justify-between'>
         <Link href={`/${id}`}>
-          <h2 className="text-2xl">{document.heading}</h2>
+          <h2 className="text-2xl">{document.title}</h2>
         </Link>
         <div className=''>
           <Link href={`/edit/${id}`}><span className=' px-2 material-icons'>edit</span></Link>
-          <span className='px-2 material-icons'>delete</span>
+          <span className='material-icons'>delete</span>
         </div>
       </div>
+
       <Link href={`/${id}`}>
-        <p>{document.content.substring(0, 250) + "..."}</p>
+        <p>{document.content.substring(0, 120) + "..."}</p>
       </Link>
     </div>
   )
