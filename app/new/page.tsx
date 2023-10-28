@@ -3,6 +3,7 @@ import EditorComponent from '@/components/EditorComponent';
 import { json } from 'stream/consumers';
 export default function NewDoc() {
   const handleSave = (title: String, content: any) => {
+    console.log("save button pinged")
     const data = {
       title: title,
       content: content
@@ -16,6 +17,7 @@ export default function NewDoc() {
         body: JSON.stringify(data)
       })
     }
+    saveDoc()
   }
   return (
     <EditorComponent onSave={handleSave} />
