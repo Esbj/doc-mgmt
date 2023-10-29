@@ -2,12 +2,12 @@
 import EditorComponent from '@/components/EditorComponent';
 import { Doc } from '@/lib/interface';
 import { useEffect, useState } from 'react'
-
+import { useRouter } from 'next/navigation';
 export default function Edit({ params }: { params: { id: number } }) {
 
   const [doc, setDoc] = useState<Doc>();
   const ID = params.id
-
+  const router = useRouter()
   const handleSave = (title: string, content: string) => {
     console.log(title, content, doc?.id)
     const data: Doc = {
@@ -21,7 +21,7 @@ export default function Edit({ params }: { params: { id: number } }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data)
-    })
+    }).then(() => router.push("/"))
   }
 
   useEffect(() => {
