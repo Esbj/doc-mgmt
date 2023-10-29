@@ -14,13 +14,21 @@ export default function Home() {
     getDocs();
   }, []);
 
+  const handleRemove = (id: number) => {
+    fetch(`api/remove/${id}`,
+      {
+        method: "POST"
+      }
+    )
+  }
+
   return (
     <main>
       {docs &&
         <div className="flex flex-wrap items-center justify-center mx-auto w-2/3 gap-6 flex-1">
           <Link className="" href="/new"><span className="flex-grow text-center m-auto bg-white rounded-3xl material-icons icon-large self-center">add</span></Link>
           {docs.map((doc) => (
-            <Preview key={doc.id} document={doc} id={doc.id} />
+            <Preview key={doc.id} document={doc} id={doc.id} handleRemove={handleRemove} />
           ))}
         </div>
       }

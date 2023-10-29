@@ -4,10 +4,12 @@ import React from 'react'
 type props = {
   document: Doc
   id: number
+  handleRemove: (id: number) => void
 }
 
-export default function saPreview({ document, id }: props) {
+export default function Preview({ document, id, handleRemove }: props) {
   const justText = document.content.replace(/(<([^>]+)>)/gi, "").replace(/&nbsp;/gi, " ");
+
   return (
     <div className="bg-white p-6  w-1/4 rounded-3xl ">
       <div className='flex justify-between'>
@@ -16,7 +18,7 @@ export default function saPreview({ document, id }: props) {
         </Link>
         <div className=''>
           <Link href={`/edit/${id}`}><span className=' px-2 material-icons'>edit</span></Link>
-          <span className='material-icons'>delete</span>
+          <span onClick={() => handleRemove(id)} className='material-icons'>delete</span>
         </div>
       </div>
 
