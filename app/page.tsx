@@ -5,21 +5,22 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 export default function Home() {
   const [docs, setDocs] = useState<Array<Doc>>()
+  const getDocs = async () => {
+    const result = await fetch("/api/");
+    const docsFromApi = await result.json();
+    setDocs(docsFromApi)
+  };
   useEffect(() => {
-    const getDocs = async () => {
-      const result = await fetch("/api/");
-      const docsFromApi = await result.json();
-      setDocs(docsFromApi)
-    };
     getDocs();
   }, []);
 
   const handleRemove = (id: number) => {
-    fetch(`api/remove/${id}`,
+    fetch(`api/delete/${id}`,
       {
-        method: "POST"
+        method: "DELETE"
       }
     )
+    getDocs()
   }
 
   return (

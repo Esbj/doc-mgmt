@@ -9,7 +9,6 @@ export default function Edit({ params }: { params: { id: number } }) {
   const ID = params.id
   const router = useRouter()
   const handleSave = (title: string, content: string) => {
-    console.log(title, content, doc?.id)
     const data: Doc = {
       content: content,
       title: title,
@@ -29,7 +28,6 @@ export default function Edit({ params }: { params: { id: number } }) {
       const result = await fetch(`/api/${ID}/`);
       const parsedDoc = await result.json();
       const response = parsedDoc[0]
-      console.log(response)
       setDoc(response)
     };
     getDoc();

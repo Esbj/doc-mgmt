@@ -27,7 +27,7 @@ export default function EditorComponent({ onSave, initialContent }: Props) {
           entity_encoding: "raw",
           menubar: false,
           plugins: 'textcolor link lists checklist',
-          toolbar: ' undo redo | forecolor backcolors | bold italic underline strikethrough | link mergetags | align | checklist numlist bullist ',
+          toolbar: ' undo redo | forecolor backcolor | bold italic underline strikethrough | link mergetags | align | checklist numlist bullist ',
         }}
         onEditorChange={newContent => setContent(newContent)}
       />

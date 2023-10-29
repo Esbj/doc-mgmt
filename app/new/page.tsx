@@ -6,7 +6,6 @@ export default function NewDoc() {
 
 
   const handleSave = (title: String, content: any) => {
-    console.log("save button pinged")
     const data = {
       title: title,
       content: content

@@ -7,7 +7,7 @@ export async function DELETE(
 ) {
   const id = params;
   const result = await dbQuery({
-    sql: `DELETE FROM docs WHERE docs . id = ?`,
+    sql: `DELETE FROM docs WHERE ?`,
     values: [id]
   });
   return NextResponse.json(result);

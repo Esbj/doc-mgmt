@@ -8,6 +8,7 @@ type props = {
 }
 
 export default function Preview({ document, id, handleRemove }: props) {
+  // remove HTML tags and &nbsp gets replaced with actuall spaces
   const justText = document.content.replace(/(<([^>]+)>)/gi, "").replace(/&nbsp;/gi, " ");
 
   return (
@@ -18,7 +19,7 @@ export default function Preview({ document, id, handleRemove }: props) {
         </Link>
         <div className=''>
           <Link href={`/edit/${id}`}><span className=' px-2 material-icons'>edit</span></Link>
-          <span onClick={() => handleRemove(id)} className='material-icons'>delete</span>
+          <span onClick={() => handleRemove(id)} className='cursor-pointer material-icons'>delete</span>
         </div>
       </div>
 
