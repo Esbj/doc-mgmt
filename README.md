@@ -7,3 +7,4 @@ To start the project do the following:
 3. Create a user with the username and password "docs" aswell as a table with the same name. 
 4. Install dependencies with `npm i`
 5. Start the project with `npm run dev`
+6. If your browser didn't open automatically the program is now hosted at [localhost:3000](https://localhost:3000)
