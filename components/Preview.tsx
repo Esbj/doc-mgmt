@@ -5,10 +5,11 @@ type props = {
   document: Doc
   id: number
 }
-export default function Preview({ document, id }: props) {
+
+export default function saPreview({ document, id }: props) {
+  const justText = document.content.replace(/(<([^>]+)>)/gi, "").replace(/&nbsp;/gi, " ");
   return (
     <div className="bg-white p-6  w-1/4 rounded-3xl ">
-
       <div className='flex justify-between'>
         <Link href={`/${id}`}>
           <h2 className="text-2xl">{document.title}</h2>
@@ -20,7 +21,7 @@ export default function Preview({ document, id }: props) {
       </div>
 
       <Link href={`/${id}`}>
-        <p>{document.content.substring(0, 120) + "..."}</p>
+        <p>{justText.substring(0, 120) + "..."}</p>
       </Link>
     </div>
   )

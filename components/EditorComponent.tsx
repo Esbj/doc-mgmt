@@ -24,9 +24,10 @@ export default function EditorComponent({ onSave, initialContent }: Props) {
         apiKey='vk5q0d6twde7ii4ehncmcrkz6c0mls0s0kpn7re6kqa8grr8'
         value={content}
         init={{
+          entity_encoding: "raw",
           menubar: false,
-          plugins: ' textcolor  link lists checklist casechange export formatpainter pageembed permanentpen footnotes advtemplate tableofcontents mergetags powerpaste tinymcespellchecker autocorrect typography inlinecss',
-          toolbar: ' undo redo | forecolor backcolor | blocks fontsize | bold italic underline strikethrough | link mergetags | align | checklist numlist bullist ',
+          plugins: 'textcolor link lists checklist',
+          toolbar: ' undo redo | forecolor backcolors | bold italic underline strikethrough | link mergetags | align | checklist numlist bullist ',
         }}
         onEditorChange={newContent => setContent(newContent)}
       />
