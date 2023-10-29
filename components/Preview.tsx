@@ -12,7 +12,7 @@ export default function Preview({ document, id, handleRemove }: props) {
   const justText = document.content.replace(/(<([^>]+)>)/gi, "").replace(/&nbsp;/gi, " ");
 
   return (
-    <div className="bg-white p-6  w-1/4 rounded-3xl ">
+    <div className="bg-white p-6 w-1/2 rounded-3xl ">
       <div className='flex justify-between'>
         <Link href={`/${id}`}>
           <h2 className="text-2xl">{document.title}</h2>
