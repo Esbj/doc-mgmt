@@ -1,18 +1,32 @@
-"use client"
-
+"use client";
 import EditorComponent from '@/components/EditorComponent';
-import React, { useEffect, useState } from 'react'
+import { Doc } from '@/lib/interface';
+import { useEffect, useState } from 'react'
 
 export default function Edit({ params }: { params: { id: number } }) {
-  const [doc, setDoc] = useState();
+
+  const [doc, setDoc] = useState<Doc>();
+  const ID = params.id
 
   const handleSave = (title: string, content: string) => {
-    console.log(title, content)
-    //fetch insert endpoint
+    console.log(title, content, doc?.id)
+    const data: Doc = {
+      content: content,
+      title: title,
+      id: ID
+    }
+    fetch(`/api/edit/${ID}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
   }
+
   useEffect(() => {
     const getDoc = async () => {
-      const result = await fetch(`/api/${params.id}/`);
+      const result = await fetch(`/api/${ID}/`);
       const parsedDoc = await result.json();
       const response = parsedDoc[0]
       console.log(response)

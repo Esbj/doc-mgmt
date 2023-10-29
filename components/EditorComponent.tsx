@@ -1,11 +1,10 @@
 "use client"
 import { Doc } from '@/lib/interface'
 import { Editor } from '@tinymce/tinymce-react'
-import { init } from 'next/dist/compiled/webpack/webpack'
 import React, { useEffect, useState } from 'react'
 
 type Props = {
-  onSave: (title: string, content: any) => void
+  onSave: (title: string, content: string) => void
   initialContent?: Doc,
 }
 
