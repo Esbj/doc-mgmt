@@ -1,10 +1,10 @@
-import { Doc } from '@/lib/interface'
 import React from 'react'
 
-export default function edit() {
+export default function View({ params }: { params: { id: number } }) {
+
   return (
     <>
-      <h1></h1>
+      <h1>{params.id}</h1>
     </>
   )
 }

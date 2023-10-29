@@ -1,15 +1,22 @@
 "use client"
+import { Doc } from '@/lib/interface'
 import { Editor } from '@tinymce/tinymce-react'
+import { init } from 'next/dist/compiled/webpack/webpack'
 import React, { useState } from 'react'
 
 type Props = {
-  onSave: (title: String, content: any) => void
+  onSave: (title: string, content: any) => void
+  initialContent?: Doc,
 }
 
-export default function EditorComponent({ onSave }: Props) {
-
+export default function EditorComponent({ onSave, initialContent }: Props) {
   const [content, setContent] = useState("");
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState("");
+
+  if (initialContent?.content && initialContent.title) {
+    setTitle(initialContent.title);
+    setContent(initialContent.content);
+  }
 
   return (
     <div className='mx-auto flex flex-col gap-6 mt-6 w-3/4'>
