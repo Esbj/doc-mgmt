@@ -12,7 +12,7 @@
     "@tinymce/tinymce-react": "^5.0.1",
     "material-icons": "^1.13.12",
     "mysql2": "^3.6.2",
-    "next": "^14.2.3",
+    "next": "^15.5.24",
     "react": "^18",
     "react-dom": "^18"
   },
